@@ -23,15 +23,10 @@ class ViewController: UIViewController {
         diceImageView2.image = self.rollImage()
     }
     
-    func rollImage() -> UIImage! {
-        var randomIndex = Int.random(in: 1...6) - 1
+    func rollImage() -> UIImage {
+        let resourceNames = ["DiceOne", "DiceTwo", "DiceThree", "DiceFour", "DiceFive", "DiceSix"].randomElement()!
         
-        return [ UIImage(named: "DiceOne"),
-                 UIImage(named: "DiceTwo"),
-                 UIImage(named: "DiceThree"),
-                 UIImage(named: "DiceFour"),
-                 UIImage(named: "DiceFive"),
-                 UIImage(named: "DiceSix")][randomIndex]
+        return UIImage(named: resourceNames)!
     }
 }
 
