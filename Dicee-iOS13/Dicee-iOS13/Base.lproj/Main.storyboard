@@ -61,8 +61,12 @@
                                         <rect key="frame" x="0.0" y="559.5" width="414" height="278.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lar-n3-2sw">
-                                                <rect key="frame" x="153" y="100" width="108.5" height="78.5"/>
+                                                <rect key="frame" x="132" y="99" width="150" height="80"/>
                                                 <color key="backgroundColor" red="0.55633944270000002" green="0.1615233123" blue="0.1450603604" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="7gc-R6-Gyv"/>
+                                                    <constraint firstAttribute="height" constant="80" id="mD0-Z1-XcZ"/>
+                                                </constraints>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Roll">
                                                     <fontDescription key="titleFontDescription" type="system" pointSize="54"/>
