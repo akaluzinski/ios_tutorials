@@ -40,6 +40,8 @@ class ViewController: UIViewController {
         if remainingSeconds > 0 {
             print("\(remainingSeconds) seconds.")
             remainingSeconds -= 1
+        } else {
+            timer.invalidate()
         }
         
     }
