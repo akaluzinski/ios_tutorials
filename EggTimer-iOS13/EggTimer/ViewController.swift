@@ -10,6 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var status: UILabel!
+    
     let eggTimes = [
         "Soft": 300,
         "Medium": 420,
@@ -34,10 +36,15 @@ class ViewController: UIViewController {
     }
     
     @objc func updateTimer() {
+        status.text = getStatusText()
         if remainingSeconds > 0 {
             print("\(remainingSeconds) seconds.")
             remainingSeconds -= 1
         }
+        
     }
     
+    func getStatusText() -> String {
+        return remainingSeconds > 0 ? String(remainingSeconds) : "Done"
+    }
 }
