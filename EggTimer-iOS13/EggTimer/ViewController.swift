@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController {
     
     @IBOutlet weak var status: UILabel!
     @IBOutlet weak var progressBar: UIProgressView!
+    
+    var player: AVAudioPlayer!
     
     let eggTimes = [
         "Soft": 300,
@@ -30,12 +33,12 @@ class ViewController: UIViewController {
         let hardness = sender.currentTitle!
         boilingTime = eggTimes[hardness]!
         remainingSeconds = boilingTime
-    
+        
         timer = Timer.scheduledTimer(timeInterval: 1.0,
-                             target: self,
-                             selector: #selector(updateTimer),
-                             userInfo: nil,
-                             repeats: true)
+                                     target: self,
+                                     selector: #selector(updateTimer),
+                                     userInfo: nil,
+                                     repeats: true)
     }
     
     @objc func updateTimer() {
@@ -49,11 +52,19 @@ class ViewController: UIViewController {
             progressBar.progress = progress
         } else {
             timer.invalidate()
+            progressBar.progress = 1
+            playAlarm()
         }
         
     }
     
     func getStatusText() -> String {
         return remainingSeconds > 0 ? String(remainingSeconds) : "Done"
+    }
+    
+    func playAlarm() {
+        let url = Bundle.main.url(forResource: "alarm_sound", withExtension: "mp3")
+        player = try! AVAudioPlayer(contentsOf: url!)
+        player.play()
     }
 }
