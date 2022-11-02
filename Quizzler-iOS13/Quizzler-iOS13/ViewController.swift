@@ -11,12 +11,44 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var questionLabel: UILabel!
+    @IBOutlet weak var progressBar: UIProgressView!
+    @IBOutlet weak var trueButton: UIButton!
+    @IBOutlet weak var falseButton: UIButton!
+    
+    let quiz = [
+        ["Question A", "True"],
+        ["Question B", "False"],
+        ["Question C", "True"]
+    ]
+    
+    var currentQuestion = 0
+    
+    
+    @IBAction func answerButtonPressed(_ sender: UIButton) {
+        let userAnswer = sender.currentTitle
+        let expectedAnswer = quiz[currentQuestion][1]
+        
+        if userAnswer == expectedAnswer {
+            print("Right")
+        } else {
+            print("Wrong")
+        }
+        
+    
+        currentQuestion += 1
+        rollQuestion()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        rollQuestion()
+                
     }
 
+    func rollQuestion() {
+        questionLabel.text = quiz[currentQuestion][0]
+    }
 
 }
 
