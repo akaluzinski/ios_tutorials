@@ -65,6 +65,7 @@ class ViewController: UIViewController {
     }
 
     @objc func rollQuestion() {
+        progressBar.progress = Float(currentQuestion) / Float(quiz.count)
         questionLabel.text = quiz[currentQuestion].text
         trueButton.backgroundColor = UIColor.clear;
         falseButton.backgroundColor = UIColor.clear;
