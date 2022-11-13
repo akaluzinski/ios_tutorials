@@ -34,8 +34,12 @@ class ViewController: UIViewController {
             print("Wrong")
         }
         
-    
-        currentQuestion += 1
+        if currentQuestion + 1 < quiz.count {
+            currentQuestion += 1
+        } else {
+            currentQuestion = 0
+        }
+        
         rollQuestion()
     }
     
