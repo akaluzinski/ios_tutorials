@@ -39,9 +39,9 @@ class ViewController: UIViewController {
         let expectedAnswer = quiz[currentQuestion].answer
         
         if userAnswer == expectedAnswer {
-            print("Right")
+            sender.backgroundColor = UIColor.green
         } else {
-            print("Wrong")
+            sender.backgroundColor = UIColor.red
         }
         
         if currentQuestion + 1 < quiz.count {
@@ -50,7 +50,11 @@ class ViewController: UIViewController {
             currentQuestion = 0
         }
         
-        rollQuestion()
+        Timer.scheduledTimer(timeInterval: 0.2,
+                                     target: self,
+                                     selector: #selector(rollQuestion),
+                                     userInfo: nil,
+                                     repeats: false)
     }
     
     override func viewDidLoad() {
@@ -60,8 +64,10 @@ class ViewController: UIViewController {
                 
     }
 
-    func rollQuestion() {
+    @objc func rollQuestion() {
         questionLabel.text = quiz[currentQuestion].text
+        trueButton.backgroundColor = UIColor.clear;
+        falseButton.backgroundColor = UIColor.clear;
     }
 
 }
