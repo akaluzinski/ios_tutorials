@@ -1,6 +1,6 @@
 import Foundation
 
-struct Question {
+struct QuizQuestion {
     let text: String
     let answer: String
     
